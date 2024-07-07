@@ -1,0 +1,82 @@
+<div *ngIf="item">
+    <div class="product-container">
+        <div class="image-container">
+            <button mat-icon-button (click)="previousImage()" [disabled]="currentImageIndex === 0">
+              <mat-icon>chevron_left</mat-icon>
+            </button>
+            <img [src]="imageUrl + item.itemId + '/' + currentImageIndex" loading="lazy" class="item-image">
+            <button mat-icon-button (click)="nextImage()" [disabled]="currentImageIndex === totalImages - 1">
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+          
+
+        <button (click)="goToCart()" mat-fab disabled class="cart-icon" style="font-size: 30px;">
+            <div style="font-size: 10px;" class="badge bg-danger">{{cartItemCount}}</div>
+            <mat-icon style="color:white">
+                add_shopping_cart
+            </mat-icon>
+        </button>
+        <div class="details-container">
+            <p><strong>Name:</strong> {{ item.name }}</p>
+            <p><strong>Item ID:</strong> {{ item.itemId }}
+                <mat-icon mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar"
+                    class="copy" (click)="utilService.copyText(item.itemId)">file_copy</mat-icon>
+            </p>
+            <p><strong>Description:</strong></p>
+            <ul>
+                <li *ngFor="let desc of descriptionList">{{ desc }}</li>
+            </ul>
+            <p><strong>Price:</strong> ${{ item.price * item.quantity }} JMD</p>
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+
+            <!-- Size Selection and Product Measurement -->
+            <div class="size-selection" align="center">
+                <mat-button-toggle-group [(ngModel)]="selectedSize" aria-label="Select size">
+                    <mat-button-toggle value="S">4(S)</mat-button-toggle>
+                    <mat-button-toggle value="M">6(M)</mat-button-toggle>
+                    <mat-button-toggle value="L">8/10(L)</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div class="product-measurement" *ngIf="selectedSize">
+                <h6>Item Measurement</h6>
+                <p *ngIf="selectedSize === 'S'">
+                    <strong>Skirts - </strong> Length: 6.3 inch, Waist Size: 29.1-42.5 inch <br>
+                    <strong>Tops - </strong> Underbust: 29.1-40.2 inch, Length: 7.1 inch <br>
+                    <strong>Pants - </strong> Length: 9.1 inch, Waist Size: 28.3-41.7 inch
+                </p>
+                <p *ngIf="selectedSize === 'M'">
+                    <!-- Add measurements for size M here -->
+                </p>
+                <p *ngIf="selectedSize === 'L'">
+                    <!-- Add measurements for size L here -->
+                </p>
+            </div>
+            <div align="center">
+                <button mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"
+                    matTooltip="Decrease the Quantity of this item"
+                    aria-label="Button that displays a tooltip when focused or hovered over"
+                    class="btn btn-outline-primary">
+                    <mat-icon class="quantity-icon">remove_circle_outline</mat-icon>
+                </button>
+                <button mat-icon-button (click)="increaseQuantity()" matTooltip="Increase the Quantity of this item"
+                    aria-label="Button that displays a tooltip when focused or hovered over"
+                    class="btn btn-outline-primary">
+                    <mat-icon class="quantity-icon">add_circle</mat-icon>
+                </button><br><br>
+                <button matTooltip="Add this item to your Pet Cart" mat-raised-button
+                    style="width:50%;border-radius: 6.53rem; font-size: 12px;"
+                    [ngStyle]="{'background-color': 'purple', 'color': 'white'}"
+                    (click)="addItemToCart(item)"><mat-icon>add_shopping_cart</mat-icon>Add To
+                    Cart</button><br><br>
+
+                <button (click)="this.pageRoute.goBackToShop()" (click)="utilService.scrollToTop()" mat-raised-button
+                    style="width:50%;border-radius: 9.53rem; background-color: grey; color:white; font-size: 12px;">
+                    <mat-icon>shopping_basket</mat-icon>Back To Shop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br>
+<app-footer></app-footer>

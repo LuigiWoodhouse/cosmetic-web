@@ -1,0 +1,110 @@
+.footer {
+    background-color: #0b0b07;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 80px;
+    // position: relative;
+    // left: 0px;
+    // right: 0px;
+    // height: 25%;
+    overflow: hidden;
+  }
+  
+  .my-website {
+    text-decoration: none;
+    color: #5d5959;
+  }
+  
+  .social {
+    text-decoration: none;
+    color: white
+  }
+  
+  .policy {
+    text-decoration: none;
+    color: #5d5959;
+  }
+  
+  .policy:hover {
+    cursor: pointer;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 300px;
+    /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  /* Default styles for all screen sizes */
+  .column {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Responsive columns for Mobile devices (320px - 480px) */
+  @media screen and (max-width: 480px) {
+    .column {
+        width: 100%;
+        height: 80%;
+        display: block;
+        margin-bottom: 20px;
+    }
+  }
+  
+  /* Responsive columns for iPads, Tablets (481px - 768px) */
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .column {
+        width: 100%;
+        height: 80%;
+        display: block;
+        margin-bottom: 20px;
+    }
+  }
+  
+  /* Responsive columns for Small screens, laptops (769px - 1024px) */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .column {
+        width: 100%;
+        height: 80%;
+        display: block;
+        margin-bottom: 20px;
+    }
+  }
+  
+  /* Responsive columns for Desktops, large screens (1025px - 1200px) */
+  @media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .column {
+        width: 100%;
+        height: 80%;
+        display: block;
+        margin-bottom: 20px;
+    }
+  }
+  
+  /* Responsive columns for Extra large screens, TV (1201px and more) */
+  @media screen and (min-width: 1201px) {
+    .column {
+        width: 25%;
+        height: 80%;
+        display: block;
+        margin-bottom: 20px;
+    }
+  }
+  
+  li{
+    list-style:none;
+  }

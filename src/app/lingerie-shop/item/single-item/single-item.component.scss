@@ -1,0 +1,103 @@
+.product-container {
+    display: flex;
+    align-items: flex-start;
+    /* Align items at the start of the cross axis */
+    padding-top: 10%;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .product-container {
+        padding-top: 35%;
+        flex-direction: column;
+        /* Stack items vertically */
+    }
+
+    .image-container {
+        margin-right: 0;
+        /* Remove the negative margin */
+        margin-bottom: 10px;
+        /* Add margin below the image for spacing */
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        /* Stack items vertically */
+    }
+
+    .image-container {
+        margin-right: 0;
+        /* Remove the negative margin */
+        margin-bottom: 10px;
+        /* Add margin below the image for spacing */
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .product-container {
+        flex-direction: column;
+        /* Stack items vertically */
+    }
+
+    .image-container {
+        margin-right: 0;
+        /* Remove the negative margin */
+        margin-bottom: 10px;
+        /* Add margin below the image for spacing */
+    }
+}
+
+
+.image-container {
+    flex: 0 0 auto;
+    /* Make the image container non-flexible */
+    margin-right: -200px;
+    /* Adjust margin between image and details */
+    //overflow: hidden;
+}
+
+.details-container {
+    flex: 1;
+    padding: 15px;
+    /* Expand details container to fill remaining space */
+}
+
+.item-image {
+    width: 50%;
+    /* Ensure the image doesn't exceed its container width */
+    height: 50%;
+    /* Maintain aspect ratio */
+    /* Add additional styles as needed */
+}
+
+.btn-outline-primary {
+    color: purple;
+}
+
+.btn-outline-primary:hover {
+    color: white;
+    background-color: purple;
+}
+
+.quantity-icon {
+    position: relative;
+    bottom: 3px;
+    /* Adjust this value to move the icon up or down */
+    right: 1px;
+    /* Adjust this value to move the icon left or right */
+}
+
+.cart-icon {
+    position: fixed;
+    height: 40px;
+    top: 105px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.copy {
+    cursor: pointer;
+    font-size: 20px;
+}

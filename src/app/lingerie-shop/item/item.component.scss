@@ -1,0 +1,127 @@
+.active,
+.btn:hover {
+    outline: none !important;
+    box-shadow: none;
+    background-color: #e066ba;
+}
+
+.btn-primary {
+    --bs-btn-bg: #0e0a0d;
+    --bs-btn-border-color: #0e0a0d;
+    --bs-btn-hover-border-color: #0e0a0d;
+    --bs-btn-active-border-color: #0e0a0d;
+}
+
+
+.nav-links {
+    display: flex;
+    flex-wrap: nowrap;
+    /* prevent wrapping */
+    overflow-x: auto;
+    /* enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* enable momentum scrolling on iOS */
+    margin: 6px;
+}
+
+.ml-auto {
+    margin-left: -31px;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+.cart-icon {
+    position: fixed;
+    height: 40px;
+    top: 215px;
+    right: 20px;
+    z-index: 9999;
+}
+
+
+@media (max-width:480px) {
+    .cart-icon {
+        position: fixed;
+        height: 40px;
+        top: 215px;
+        right: 20px;
+    }
+}
+
+.content {
+    padding: 40px;
+    height: auto;
+    overflow: hidden;
+}
+
+.no-stock {
+    font-size: 24px;
+    text-align: center;
+}
+
+.overlay {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+:host ::ng-deep #custom-spinner circle {
+    stroke: #0CC20C;
+
+}
+
+mat-card {
+    box-shadow: 0 26px 6px 0 rgba(11, 0, 0, 0.2);
+    width: 100%;
+}
+
+mat-card:hover{
+    transition: transform 0.3s;
+    transform: scale(1.05);
+}
+
+
+mat-card-header {
+    color: black;
+    width: 100%;
+    padding: 16px;
+    display: flex;
+}
+
+
+mat-toolbar {
+    background-color: #050505;
+    height: 55px;
+    position: relative;
+    top: 10px;
+    border-radius: 4px;
+}
+
+.item-heading {
+    color: black;
+}
+
+.copy{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.item-image-prevent-stretch {
+    width: 100%;
+    height: auto;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust the gap between cards */
+}
+
+.card-item {
+    flex: 1 1 25%; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 25% */
+    box-sizing: border-box;
+}

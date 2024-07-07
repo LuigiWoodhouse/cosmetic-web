@@ -1,0 +1,131 @@
+.follow-scroller [aria-hidden="true"] {
+  display: none;
+  position: fixed;
+  top: 0;
+}
+
+.hamburger-icon-size {
+  font-size: 118%;
+  position: fixed;
+  top: 33px;
+  right: 23px;
+  color: rgb(206, 81, 102);
+}
+
+.background {
+  //background-color: pink;
+  min-height: 100vh;
+}
+
+mat-toolbar {
+  background-color: pink;
+  position: fixed;
+  height: 100px;
+  top: 0;
+  z-index: 1030;
+  padding-top: 20px;
+  //box-shadow: 0 5px 5px 0 #898288;
+}
+
+mat-sidenav {
+  width: 250px;
+  background-color: pink;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  height: 100%;
+}
+
+.active,
+.btn:hover {
+  outline: none !important;
+  box-shadow: none;
+  background-color: rgb(245, 160, 174);
+}
+
+.btn-primary {
+  --bs-btn-bg: rgb(245, 160, 174);
+  --bs-btn-border-color: pink;
+  --bs-btn-hover-border-color: pink;
+  --bs-btn-active-border-color: pink;
+}
+
+nav {
+  margin: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  float: left;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Mobile devices – 320px — 480px */
+@media (min-width: 320px) and (max-width: 480px) {
+  .hide-menu-bar {
+    display: block;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 769px) {
+  .hide-menu-bar {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hide-menu-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .hide-menu-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 1201px) {
+  .hide-menu-bar {
+    display: none;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .show-menu-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 769px) {
+  .show-menu-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .show-menu-bar {
+    display: block;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .show-menu-bar {
+    display: block;
+  }
+}
+
+@media (min-width: 1201px) {
+  .show-menu-bar {
+    display: block;
+  }
+}

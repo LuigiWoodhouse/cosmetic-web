@@ -1,0 +1,65 @@
+<br><br><br>
+<mat-toolbar>
+    <ul class="nav-links ml-auto">
+      &nbsp;
+      <li><a class="btn btn-primary" [ngClass]="{ 'active': filterSelectedItem === '' }"
+          (click)="filterPetAccessoryCategory('')">All</a></li>
+
+      <li><a class="btn btn-primary" [ngClass]="{ 'active': filterSelectedItem === 'Maid' }"
+          (click)="filterPetAccessoryCategory('Maid')">Maid</a></li>
+
+      <li><a class="btn btn-primary" [ngClass]="{ 'active': filterSelectedItem === 'Nurse' }"
+          (click)="filterPetAccessoryCategory('Nurse')">Nurse</a></li>
+
+      <li><a class="btn btn-primary" [ngClass]="{ 'active': filterSelectedItem === 'SchoolGirl' }"
+          (click)="filterPetAccessoryCategory('SchoolGirl')">School Girl</a></li>
+    </ul>
+
+
+  <button (click)="goToCart()" (click)="utilService.scrollToTop()"mat-fab disabled class="cart-icon">
+    <div style="font-size: 10px;" class="badge bg-danger">{{cartItemCount}}</div>
+    <mat-icon style="color:rgb(19, 0, 0) " >
+      add_shopping_cart
+    </mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <div class="card-container">
+    <ng-container *ngIf="!loadingShopAnimation; else spinner">
+      <ng-container *ngIf="filterProductList.length > 0; else noItems">
+        <div class="card-item" *ngFor="let item of filterProductList">
+          <mat-card>
+            <mat-card-header>
+              <div class="item-name">
+                <b>{{item.name}}</b><br>
+              </div>
+            </mat-card-header>
+            <a [routerLink]="['/item-details', item.itemId]" >
+              <img [src]="getImageUrl(item.itemId)" loading="lazy" class="item-image-prevent-stretch" *ngIf="!loadingImage; else noImage">
+            </a>
+          </mat-card>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #noItems>
+      <div class="no-stock" *ngIf="!loadingShopAnimation">
+        We are sorry we currently do not have this item in stock
+      </div>
+    </ng-template>
+
+    <ng-template #noImage>
+      <div class="overlay">
+        <mat-spinner id="custom-spinner"></mat-spinner>
+      </div>
+    </ng-template>
+    
+    <ng-template #spinner>
+      <div class="overlay">
+        <mat-spinner id="custom-spinner"></mat-spinner>
+        Please wait while we load our shop. Thank you for your patience
+      </div>
+    </ng-template>
+  </div>
+</div>
