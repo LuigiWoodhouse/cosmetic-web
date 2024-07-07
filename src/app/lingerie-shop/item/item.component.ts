@@ -67,13 +67,14 @@ export class ItemComponent {
       this.pageRoute.goToGuestPlaceOrderPage()
   }
 
-  fetchPetAccessoryList() {
+  fetchItemList() {
     const cachedProductList = localStorage.getItem('shop');
 
     if (cachedProductList) {
       // Use cached data from localStorage
       this.productList = JSON.parse(cachedProductList);
       this.filterProductList = this.productList;
+      console.log(this.filterProductList,"local storage items")
       this.loadingShopAnimation = false;
     } else {
       // Simulate a delay using setTimeout
@@ -83,6 +84,7 @@ export class ItemComponent {
             this.productList = data;
             this.productList = this.productList.data;
             this.filterProductList = this.productList;
+            console.log(this.filterProductList,"db items")
             this.productList.forEach((a: any) => {
               Object.assign(a, { quantity: 1, total: a.price });
             });
@@ -130,6 +132,6 @@ export class ItemComponent {
     this.getImageUrl(this.itemId)
     this.lingerieShopService.loadCartItemsFromLocalStorage()
     this.updateCartIconItemCount()
-    this.fetchPetAccessoryList()
+    this.fetchItemList()
   }
 }

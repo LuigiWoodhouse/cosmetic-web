@@ -2,14 +2,14 @@
     <div class="product-container">
         <div class="image-container">
             <button mat-icon-button (click)="previousImage()" [disabled]="currentImageIndex === 0">
-              <mat-icon>chevron_left</mat-icon>
+                <mat-icon>chevron_left</mat-icon>
             </button>
             <img [src]="imageUrl + item.itemId + '/' + currentImageIndex" loading="lazy" class="item-image">
             <button mat-icon-button (click)="nextImage()" [disabled]="currentImageIndex === totalImages - 1">
-              <mat-icon>chevron_right</mat-icon>
+                <mat-icon>chevron_right</mat-icon>
             </button>
-          </div>
-          
+        </div>
+
 
         <button (click)="goToCart()" mat-fab disabled class="cart-icon" style="font-size: 30px;">
             <div style="font-size: 10px;" class="badge bg-danger">{{cartItemCount}}</div>
@@ -29,29 +29,46 @@
             </ul>
             <p><strong>Price:</strong> ${{ item.price * item.quantity }} JMD</p>
             <p><strong>Quantity:</strong> {{ item.quantity }}</p>
-
-            <!-- Size Selection and Product Measurement -->
             <div class="size-selection" align="center">
                 <mat-button-toggle-group [(ngModel)]="selectedSize" aria-label="Select size">
                     <mat-button-toggle value="S">4(S)</mat-button-toggle>
                     <mat-button-toggle value="M">6(M)</mat-button-toggle>
                     <mat-button-toggle value="L">8/10(L)</mat-button-toggle>
+                    <mat-button-toggle value="XL">10/12(XL)</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
             <div class="product-measurement" *ngIf="selectedSize">
                 <h6>Item Measurement</h6>
                 <p *ngIf="selectedSize === 'S'">
-                    <strong>Skirts - </strong> Length: 6.3 inch, Waist Size: 29.1-42.5 inch <br>
-                    <strong>Tops - </strong> Underbust: 29.1-40.2 inch, Length: 7.1 inch <br>
-                    <strong>Pants - </strong> Length: 9.1 inch, Waist Size: 28.3-41.7 inch
+                    <strong>Skirt - </strong> Length: {{item.skirt?.s_skirtLength}}, Waist Size:
+                    {{item.skirt?.s_waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.top?.s_underbust}}, Bust: {{item.top?.s_bust}}, Length:
+                    {{item.top?.s_topLength}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hip?.s_hipSize}} <br>
                 </p>
                 <p *ngIf="selectedSize === 'M'">
-                    <!-- Add measurements for size M here -->
+                    <strong>Skirt - </strong> Length: {{item.skirt?.m_skirtLength}}, Waist Size:
+                    {{item.skirt?.m_waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.top?.m_underbust}}, Bust: {{item.top?.m_bust}}, Length:
+                    {{item.top?.m_topLength}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hip?.m_hipSize}} <br>
                 </p>
                 <p *ngIf="selectedSize === 'L'">
-                    <!-- Add measurements for size L here -->
+                    <strong>Skirt - </strong> Length: {{item.skirt?.l_skirtLength}}, Waist Size:
+                    {{item.skirt?.l_waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.top?.l_underbust}}, Bust: {{item.top?.l_bust}}, Length:
+                    {{item.top?.l_topLength}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hip?.l_hipSize}} <br>
+                </p>
+                <p *ngIf="selectedSize === 'XL'">
+                    <strong>Skirt - </strong> Length: {{item.skirt?.xl_skirtLength}}, Waist Size:
+                    {{item.skirt?.xl_waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.top?.xl_underbust}}, Bust: {{item.top?.xl_bust}}, Length:
+                    {{item.top?.xl_topLength}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hip?.xl_hipSize}} <br>
                 </p>
             </div>
+
             <div align="center">
                 <button mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"
                     matTooltip="Decrease the Quantity of this item"
