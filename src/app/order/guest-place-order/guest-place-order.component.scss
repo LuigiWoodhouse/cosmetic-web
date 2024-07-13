@@ -1,0 +1,129 @@
+.table-heading {
+    color: orangered;
+}
+
+
+.grand-total-word {
+    font-weight: bold;
+    position: sticky;
+    right: 800px;
+    top: 530px;
+}
+
+.item-layout {
+    padding: 10%;
+    line-height: 2.5;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 320px) and (max-width: 990px) {
+    .item-layout {
+        padding-top: 32%;
+        line-height: 2.5;
+        overflow: hidden;
+    }
+}
+
+.cart-buttons {
+    width: 100%;
+}
+
+// /* Add spaces between buttons for different screen sizes */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .cart-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .cart-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .cart-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .cart-buttons {
+        width: 110%;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .cart-buttons {
+        width: 115%;
+    }
+}
+
+.success-message {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.success-message-title {
+    color: green;
+    font-size: 20px;
+}
+
+.check-mark {
+    font-size: 118%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: green;
+}
+
+.order-detail {
+    padding: 14px;
+}
+
+.overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.286);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    /* Set the z-index to an even higher value */
+}
+
+:host ::ng-deep #custom-spinner circle {
+    stroke: #0CC20C;
+}
+
+.spacing-element {
+    margin: 45px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-header {
+    background-color: purple;
+    min-width: 100.1%;
+    color: white;
+}
+
+mat-form-field {
+    width: 7%;
+}

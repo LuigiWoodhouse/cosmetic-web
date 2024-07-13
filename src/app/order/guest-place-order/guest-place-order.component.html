@@ -1,0 +1,113 @@
+<div class="item-layout">
+    <h2 align="center">Pet Cart</h2>
+    <div *ngIf="cartItemList && cartItemList.length > 0; else noItemsTemplate">
+        <div *ngIf="!orderPlaced; else successContent">
+            <div *ngFor="let item of cartItemList">
+                <b>Item :</b> {{item.name}}<br>
+                <b>Price :</b> ${{ (item.price * item.quantity).toLocaleString(undefined,
+                {minimumFractionDigits: 2,
+                maximumFractionDigits: 2}) }}&nbsp;JMD<br>
+                <b>Quantity:</b>&nbsp;
+                <span>
+                    <select [(ngModel)]="item.quantity" (change)="validateQuantity(item)"
+                        style="width: 60px; height: 30px;">
+                        <option *ngFor="let qty of utilService.quantities" [value]="qty">
+                            {{ qty }}
+                        </option>
+                    </select>
+                    <div *ngIf="item.errorMessage" class="error-message">
+                        {{ item.errorMessage }}
+                    </div>
+                </span>
+                <button *ngIf="!loadingAnimation; else spinner" (click)="removeItem(item.petAccessoryId)"
+                    class="btn btn-outline-danger" style="float: right; color: red; background-color: white;"
+                    mat-icon-button matTooltip="Remove From Cart "
+                    aria-label="Button that displays a tooltip when focused or hovered over">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <br>
+                <img [src]="imageUrl + item.itemId" height="100px" width="150px">
+                <hr>
+                <button [routerLink]="['/item-details', item.petAccessoryId]" (click)="utilService.scrollToTop()"
+                    mat-raised-button style="background-color: grey; color:white; font-size: 12px;">
+                    <mat-icon>keyboard_backspace</mat-icon>Go Back To Item</button>&nbsp;
+            </div>
+            <br>
+            <div align="center" class="cart-buttons">
+                <button *ngIf="!loadingAnimation; else spinner" (click)="emptycart()" mat-raised-button
+                    style="background-color:red; color:white;font-size: 12px;">
+                    <mat-icon>remove_shopping_cart</mat-icon>Empty Cart
+                </button>&nbsp;
+                <button (click)="openCollecOrderDetailsDialog()" *ngIf="!loadingAnimation; else spinner"
+                    mat-raised-button style="background-color:purple; color:white; font-size: 12px;">
+                    <mat-icon>credit_card</mat-icon>Continue To Place Order</button>&nbsp;
+            </div>
+            <div class="grand-total-word">Grand Total :&nbsp;
+                <div style="display: inline-block; color: red;">
+                    ${{ grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
+                    }}
+                    JMD
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="!orderError; else errorContent">
+
+    </div>
+    <ng-template #errorContent>
+        We are sorry, we could not place your order. Please try again. If this continues to happen, please create a
+        ticket. We apologize for the inconvenience this has caused.
+        <!-- Write backend logic to save failed attempts to db -->
+    </ng-template>
+</div>
+<ng-template #noItemsTemplate>
+    <div align="center">
+        <br>
+        <h3>There are no items in your cart.</h3><br>
+        <button (click)="this.pageRouteService.goBackToShop()" mat-raised-button
+            style="background-color: grey; color:white; font-size: 12px;">
+            <mat-icon>shopping_basket</mat-icon>Back To Shop</button>&nbsp;
+    </div>
+</ng-template>
+
+<ng-template #successContent>
+    <div class="success-message">
+        <div class="success-message-title" align="center">Order Has Been Placed Successfully</div>
+        <mat-icon class="check-mark">check_circle</mat-icon><br>
+        A Pro forma(not a receipt) will be sent your email. Our team will make contact with you by phone call within an
+        hour during business hours to
+        confirm and arrange payment via bank transfer.
+        Thank You For Doing Business With PetAniTopia - The Magical Kingdom For All Animals. A copy of the Pro forma
+        can be found below. Please take a screenshot of this page.
+    </div>
+    <br>
+    <div *ngIf="displayOrderDetails">
+
+        <h6><b>Status:</b> <span class="order-detail">{{ displayOrderDetails.data.status }}</span></h6>
+        <h6><b>Pending Amount:</b> <span class="order-detail">{{ 'JMD ' + (displayOrderDetails.data.orderAmount |
+                number:'1.0-2') }}</span></h6>
+        <h6><b>Proforma ID:</b> <span class="order-detail">{{ displayOrderDetails.data.proformaId }}</span></h6>
+        <h6><b>Order Date:</b> <span class="order-detail">{{ displayOrderDetails.data.orderDate }}</span></h6>
+        <h6><b>Pending Shipping To:</b> <span class="order-detail">{{ displayOrderDetails.data.firstName + " " +
+                displayOrderDetails.data.lastName }}</span></h6>
+
+        <h6><b>Items:</b></h6>
+        <div *ngFor="let item of displayOrderDetails.data.items">
+            {{ item.quantity }} of {{ item.name }} - {{ 'JMD ' + (displayOrderDetails.data.orderAmount| number:'1.0-2')
+            }} each
+        </div>
+    </div>
+</ng-template>
+
+<div class="center">
+    <ng-template #spinner>
+        <div class="overlay">
+            <mat-spinner class="spinner" id="custom-spinner">
+            </mat-spinner>
+        </div>
+    </ng-template>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+<app-footer></app-footer>

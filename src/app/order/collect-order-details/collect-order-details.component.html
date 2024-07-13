@@ -1,0 +1,60 @@
+<mat-dialog-content>
+    <form [formGroup]="customerDetailsFormGroup">
+        <div class="modal-header">
+            <h4 class="center">Place Order</h4>
+        </div>
+        <div class="spacing-element">
+            <div class="row field-data">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" [(ngModel)]="createOrder.firstName"
+                        (input)="this.inputSanitization.allowLettersAndHyphenOnly($event)" required>
+                    <mat-error *ngIf="customerDetailsControl.hasError('required')"> First name is required
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" [(ngModel)]="createOrder.lastName"
+                        (input)="this.inputSanitization.allowLettersAndHyphenOnly($event)" required>
+                    <mat-error *ngIf="customerDetailsControl.hasError('required')"> Last name is required
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" [(ngModel)]="createOrder.email" required>
+                    <mat-error *ngIf="customerDetailsControl.hasError('required')"> Email is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phoneNumber" [(ngModel)]="createOrder.phoneNumber"
+                        (input)="this.inputSanitization.allowOnlyNumbersAndHyphen($event)" required>
+                    <mat-error *ngIf="customerDetailsControl.hasError('required')"> Phone number is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Delivery Address</mat-label>
+                    <input matInput formControlName="shippingAddress" [(ngModel)]="createOrder.shippingAddress"
+                        required>
+                    <mat-error *ngIf="customerDetailsControl.hasError('required')"> Delivery address is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<div mat-dialog-actions align="center">
+    <button mat-raised-button
+        [ngStyle]="{'background-color': customerDetailsFormGroup.valid ? 'purple' : 'lightgray', 'color': 'white'}"
+        (click)="createGuestCustomerOrder()" [disabled]="!customerDetailsFormGroup.valid" mat-dialog-close>Proceed To
+        Place Order</button>
+    <button mat-raised-button mat-dialog-close>No</button>
+</div>

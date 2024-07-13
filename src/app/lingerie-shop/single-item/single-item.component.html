@@ -11,7 +11,7 @@
         </div>
 
 
-        <button (click)="goToCart()" mat-fab disabled class="cart-icon" style="font-size: 30px;">
+        <button (click)="goToCart()" mat-fab class="cart-icon" style="font-size: 30px;">
             <div style="font-size: 10px;" class="badge bg-danger">{{cartItemCount}}</div>
             <mat-icon style="color:white">
                 add_shopping_cart
@@ -20,8 +20,9 @@
         <div class="details-container">
             <p><strong>Name:</strong> {{ item.name }}</p>
             <p><strong>Item ID:</strong> {{ item.itemId }}
-                <mat-icon mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar"
-                    class="copy" (click)="utilService.copyText(item.itemId)">file_copy</mat-icon>
+                <mat-icon mat-stroked-button (click)="this.notificationService.copy()"
+                    aria-label="Show an example snack-bar" class="copy"
+                    (click)="utilService.copyText(item.itemId)">file_copy</mat-icon>
             </p>
             <p><strong>Description:</strong></p>
             <ul>

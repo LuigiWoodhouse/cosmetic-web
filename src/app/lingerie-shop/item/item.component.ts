@@ -42,19 +42,19 @@ export class ItemComponent {
   }
 
   filterSelectedItem: string = ''
-  productList: any;
+  productList: any
   filterProductList: any
   itemId: any;
   cartItemCount: any
-  quantity: any = 1;
-  loadingShopAnimation = true;
+  quantity: any = 1
+  loadingShopAnimation = true
   BASE_URL = environment.apiUrl
   imageUrl = this.BASE_URL + '/lingerie/display/'
-  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start'
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom'
   loadingImage = true
 
-  updateCartIconItemCount() {
+  public updateCartIconItemCount(): void {
     // User is not logged in, set cartItemCount to 0
     this.lingerieShopService.getProducts().subscribe(data => {
       // Update cart item count in the cart icon after loading cart items
@@ -62,66 +62,46 @@ export class ItemComponent {
     })
   }
 
-  public goToCart() {
+  public goToCart(): void {
       this.lingerieShopService.cartItemList
       this.pageRoute.goToGuestPlaceOrderPage()
   }
 
-  fetchItemList() {
-    const cachedProductList = localStorage.getItem('shop');
-
-    if (cachedProductList) {
-      // Use cached data from localStorage
-      this.productList = JSON.parse(cachedProductList);
-      this.filterProductList = this.productList;
-      console.log(this.filterProductList,"local storage items")
-      this.loadingShopAnimation = false;
-    } else {
-      // Simulate a delay using setTimeout
+  public fetchItemList(): void {
       setTimeout(() => {
         this.itemService.getALLItems()
           .subscribe(data => {
-            this.productList = data;
-            this.productList = this.productList.data;
-            this.filterProductList = this.productList;
-            console.log(this.filterProductList,"db items")
+            this.productList = data
+            this.productList = this.productList.data
+            this.filterProductList = this.productList
             this.productList.forEach((a: any) => {
               Object.assign(a, { quantity: 1, total: a.price });
             });
-            this.loadingShopAnimation = false; // Set loading to false after the data is loaded
-
-            // Store data in localStorage for persistence
-            localStorage.setItem('shop', JSON.stringify(this.productList));
+            this.loadingShopAnimation = false; 
           })
       }, 1000) // Simulate a 1-second delay using setTimeout
-    }
   }
 
-  filterPetAccessoryCategory(category: string) {
+  public filterItemCategory(category: string): void {
     this.filterSelectedItem = category;
 
     if (category === '') {
       this.filterProductList = this.productList;
-    } else {
+    } 
+    else {
       this.filterProductList = this.productList.filter(
         (a: any) => a.category === category
       );
     }
   }
-  addtocart(row: any) {
+  public addtocart(row: any): void {
     this.lingerieShopService.addItem(row);
   }
 
-  removeFromCart(row: any) {
+  public removeFromCart(row: any): void {
     this.lingerieShopService.removeCartItem(row);
   }
 
-  public openSnackBar() {
-    this.snackBar.open('Copied successfully', 'close', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-    });
-  }
 
   public getImageUrl(itemId: string): string {
     this.loadingImage = false

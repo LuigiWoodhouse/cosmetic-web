@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UtilService {
 
   constructor() { }
-
+  quantities: number[] = []
   
   public scrollToTop(): void {
     window.scrollTo({
@@ -33,5 +33,11 @@ export class UtilService {
 
     // Remove the temporary textarea element
     document.body.removeChild(tempInput)
+  }
+
+  public generateQuantities() : void {
+    for (let i = 1; i <= 30; i++) {
+      this.quantities.push(i)
+    }
   }
 }
