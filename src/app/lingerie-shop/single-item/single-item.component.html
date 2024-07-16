@@ -85,7 +85,7 @@
                 <button matTooltip="Add this item to your Pet Cart" mat-raised-button
                     style="width:50%;border-radius: 6.53rem; font-size: 12px;"
                     [ngStyle]="{'background-color': 'purple', 'color': 'white'}"
-                    (click)="addItemToCart(item)"><mat-icon>add_shopping_cart</mat-icon>Add To
+                    (click)="addItemToCart(item, selectedSize)"><mat-icon>add_shopping_cart</mat-icon>Add To
                     Cart</button><br><br>
 
                 <button (click)="this.pageRoute.goBackToShop()" (click)="utilService.scrollToTop()" mat-raised-button

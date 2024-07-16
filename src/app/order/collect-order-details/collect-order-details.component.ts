@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { OrderService } from '../../services/order.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-collect-order-details',
@@ -21,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     CommonModule,
     MatInputModule,
-    MatButtonModule],
+    MatButtonModule,
+    MatProgressSpinner],
   templateUrl: './collect-order-details.component.html',
   styleUrl: './collect-order-details.component.scss'
 })
@@ -54,7 +56,9 @@ export class CollectOrderDetailsComponent {
 
 
   public createGuestCustomerOrder(): void {
-    this.loadingAnimation = true
+       setTimeout(() => {
+        this.loadingAnimation = true
+      }, 3000); 
 
     // Directly use the cartItemList since it directly contains the items
     const flatItems = this.cartItemList || [] // Make sure it defaults to an empty array if undefined
@@ -79,6 +83,9 @@ export class CollectOrderDetailsComponent {
         localStorage.removeItem("cartItems")
         this.loadingAnimation = false
         this.orderError = false
+        // share order details to guest-place-order component
+        this.orderService.setOrderDetails(this.displayOrderDetails)
+        this.orderService.setOrderPlaced(this.orderPlaced)
       },
       error: (error) => {
         this.loadingAnimation = false

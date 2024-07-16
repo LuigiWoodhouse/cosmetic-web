@@ -31,8 +31,10 @@ export class LingerieShopService {
       ...productWithoutImages 
     } = product
   
-    const existingItem = this.cartItemList.find((item: { itemId: any; }) => item.itemId === product.itemId);
-   
+    const existingItem = this.cartItemList.find((item: { itemId: any; selectedSize: any; }) => 
+      item.itemId === product.itemId && item.selectedSize === product.selectedSize
+    )
+
     if (!existingItem) {
       // Item doesn't exist in the cart, so add it
       this.cartItemList.push(productWithoutImages);

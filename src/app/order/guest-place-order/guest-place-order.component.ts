@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FooterComponent } from '../../footer/footer.component';
 import { CollectOrderDetailsComponent } from '../collect-order-details/collect-order-details.component';
 import { MatButtonModule } from '@angular/material/button';
+import { OrderService } from '../../services/order.service';
 @Component({
   selector: 'app-guest-place-order',
   standalone: true,
@@ -38,7 +39,8 @@ export class GuestPlaceOrderComponent {
     private notificationService: NotificationService,
     public inputSanitization: InputSanitizationService,
     public utilService: UtilService,
-    private zone: NgZone) { }
+    private zone: NgZone,
+    private orderService:OrderService) { }
 
   @ViewChild('errorContent') errorContent!: TemplateRef<any>
   placeOrderFormGroup!: FormGroup
@@ -104,6 +106,12 @@ export class GuestPlaceOrderComponent {
     this.utilService.generateQuantities()
     this.lingerieShopService.loadCartItemsFromLocalStorage()
     this.fetchItemList()
+    this.orderService.orderDetails$.subscribe(orderDetails => {
+      this.displayOrderDetails = orderDetails
+    })
+    this.orderService.orderPlaced$.subscribe(orderPlaced => {
+      this.orderPlaced = orderPlaced
+    })
     this.customerDetailsFormGroup = new UntypedFormGroup({
       'firstName': new UntypedFormControl(null, Validators.required),
       'lastName': new UntypedFormControl(null, Validators.required),

@@ -78,8 +78,9 @@ export class SingleItemComponent {
     this.lingerShopService.cartItemList
     this.pageRoute.goToGuestPlaceOrderPage()
   }
-  public addItemToCart(row: any): void {
-    this.lingerShopService.addItem(row)
+  public addItemToCart(row: any,selectedSize: string ): void {
+    const productWithSelectedSize = { ...row, selectedSize };
+    this.lingerShopService.addItem(productWithSelectedSize)
     this.updateCartIconItemCount()
     this.notificationService.itemAddedToCart()
   }

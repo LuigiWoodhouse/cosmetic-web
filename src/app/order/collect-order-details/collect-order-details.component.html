@@ -52,9 +52,18 @@
 </mat-dialog-content>
 
 <div mat-dialog-actions align="center">
-    <button mat-raised-button
+    <button mat-raised-button *ngIf="!loadingAnimation; else spinner"
         [ngStyle]="{'background-color': customerDetailsFormGroup.valid ? 'purple' : 'lightgray', 'color': 'white'}"
         (click)="createGuestCustomerOrder()" [disabled]="!customerDetailsFormGroup.valid" mat-dialog-close>Proceed To
         Place Order</button>
     <button mat-raised-button mat-dialog-close>No</button>
+</div>
+
+<div class="center">
+    <ng-template #spinner>
+        <div class="overlay">
+            <mat-spinner class="spinner" id="custom-spinner">
+            </mat-spinner>
+        </div>
+    </ng-template>
 </div>

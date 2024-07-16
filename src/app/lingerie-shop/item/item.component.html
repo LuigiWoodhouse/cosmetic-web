@@ -38,6 +38,8 @@
             <a [routerLink]="['/item-details', item.itemId]" >
               <img [src]="getImageUrl(item.itemId)" loading="lazy" class="item-image-prevent-stretch" *ngIf="!loadingImage; else noImage">
             </a>
+            <mat-card-actions>
+            </mat-card-actions>
           </mat-card>
         </div>
       </ng-container>

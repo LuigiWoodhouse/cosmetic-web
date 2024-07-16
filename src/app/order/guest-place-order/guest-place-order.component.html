@@ -28,7 +28,7 @@
                 <br>
                 <img [src]="imageUrl + item.itemId" height="100px" width="150px">
                 <hr>
-                <button [routerLink]="['/item-details', item.petAccessoryId]" (click)="utilService.scrollToTop()"
+                <button [routerLink]="['/item-details', item.itemId]" (click)="utilService.scrollToTop()"
                     mat-raised-button style="background-color: grey; color:white; font-size: 12px;">
                     <mat-icon>keyboard_backspace</mat-icon>Go Back To Item</button>&nbsp;
             </div>
@@ -38,7 +38,7 @@
                     style="background-color:red; color:white;font-size: 12px;">
                     <mat-icon>remove_shopping_cart</mat-icon>Empty Cart
                 </button>&nbsp;
-                <button (click)="openCollecOrderDetailsDialog()" *ngIf="!loadingAnimation; else spinner"
+                <button (click)="openCollecOrderDetailsDialog()"
                     mat-raised-button style="background-color:purple; color:white; font-size: 12px;">
                     <mat-icon>credit_card</mat-icon>Continue To Place Order</button>&nbsp;
             </div>

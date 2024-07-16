@@ -71,27 +71,14 @@ ul {
 
 :host ::ng-deep #custom-spinner circle {
     stroke: #0CC20C;
-
 }
 
-mat-card {
-    box-shadow: 0 26px 6px 0 rgba(11, 0, 0, 0.2);
-    width: 100%;
-}
-
-mat-card:hover{
+mat-card:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.100),
+        -10px -10px 10px white inset;
 }
-
-
-mat-card-header {
-    color: black;
-    width: 100%;
-    padding: 16px;
-    display: flex;
-}
-
 
 mat-toolbar {
     background-color: #050505;
@@ -105,7 +92,7 @@ mat-toolbar {
     color: black;
 }
 
-.copy{
+.copy {
     cursor: pointer;
     font-size: 20px;
 }
@@ -118,10 +105,12 @@ mat-toolbar {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; /* Adjust the gap between cards */
+    gap: 16px;
+    /* Adjust the gap between cards */
 }
 
 .card-item {
-    flex: 1 1 25%; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 25% */
+    flex: 1 1 25%;
+    /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 25% */
     box-sizing: border-box;
 }

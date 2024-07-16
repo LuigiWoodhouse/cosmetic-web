@@ -1,0 +1,22 @@
+.overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.286);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    /* Set the z-index to an even higher value */
+}
+
+:host ::ng-deep #custom-spinner circle {
+    stroke: #0CC20C;
+}
