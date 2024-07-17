@@ -13,7 +13,6 @@
 }
 
 .background {
-  //background-color: pink;
   min-height: 100vh;
 }
 
@@ -24,7 +23,6 @@ mat-toolbar {
   top: 0;
   z-index: 1030;
   padding-top: 20px;
-  //box-shadow: 0 5px 5px 0 #898288;
 }
 
 mat-sidenav {
@@ -40,11 +38,11 @@ mat-sidenav {
 .btn:hover {
   outline: none !important;
   box-shadow: none;
-  background-color: rgb(245, 160, 174);
+  background-color: rgb(150, 69, 83);
 }
 
 .btn-primary {
-  --bs-btn-bg: rgb(245, 160, 174);
+  --bs-btn-bg: pink;
   --bs-btn-border-color: pink;
   --bs-btn-hover-border-color: pink;
   --bs-btn-active-border-color: pink;

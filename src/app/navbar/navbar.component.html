@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
-    <div aria-label="hamburger icon" mat-icon-button *ngIf="sidenav.mode === 'over'"
-        (click)="sidenav.toggle()" class="hide-menu-bar">
+    <div aria-label="hamburger icon" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()"
+        class="hide-menu-bar">
         <mat-icon class="hamburger-icon-size" *ngIf="!sidenav.opened">
             menu
         </mat-icon>
@@ -13,6 +13,10 @@
         <ul (click)="utils.scrollToTop()">
             <li><a class="btn btn-primary" style="font-weight: 570;" routerLinkActive="active"
                     [routerLink]="['/home']">Home</a></li>
+            <li><a class="btn btn-primary" style="font-weight: 570;" routerLinkActive="active"
+                    [routerLink]="['/contact']">Contact</a></li>
+            <li><a class="btn btn-primary" style="font-weight: 570;" routerLinkActive="active"
+                    [routerLink]="['/support']">Support</a></li>
         </ul>
     </nav>
 </mat-toolbar>

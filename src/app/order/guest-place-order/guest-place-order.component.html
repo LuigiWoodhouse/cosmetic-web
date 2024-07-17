@@ -1,5 +1,5 @@
 <div class="item-layout">
-    <h2 align="center">Pet Cart</h2>
+    <h2 align="center">Cart</h2>
     <div *ngIf="cartItemList && cartItemList.length > 0; else noItemsTemplate">
         <div *ngIf="!orderPlaced; else successContent">
             <div *ngFor="let item of cartItemList">
@@ -58,7 +58,6 @@
     <ng-template #errorContent>
         We are sorry, we could not place your order. Please try again. If this continues to happen, please create a
         ticket. We apologize for the inconvenience this has caused.
-        <!-- Write backend logic to save failed attempts to db -->
     </ng-template>
 </div>
 <ng-template #noItemsTemplate>
@@ -78,7 +77,7 @@
         A Pro forma(not a receipt) will be sent your email. Our team will make contact with you by phone call within an
         hour during business hours to
         confirm and arrange payment via bank transfer.
-        Thank You For Doing Business With PetAniTopia - The Magical Kingdom For All Animals. A copy of the Pro forma
+        Thank You For Doing Business With Roleplay Fashion - The Magical Kingdom For All Animals. A copy of the Pro forma
         can be found below. Please take a screenshot of this page.
     </div>
     <br>

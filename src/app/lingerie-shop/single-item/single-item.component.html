@@ -30,6 +30,20 @@
             </ul>
             <p><strong>Price:</strong> ${{ item.price * item.quantity }} JMD</p>
             <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <div align="center">
+                <button mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"
+                    matTooltip="Decrease the Quantity of this item"
+                    aria-label="Button that displays a tooltip when focused or hovered over"
+                    class="btn btn-outline-primary">
+                    <mat-icon class="quantity-icon">remove_circle_outline</mat-icon>
+                </button>
+                <button mat-icon-button (click)="increaseQuantity()" matTooltip="Increase the Quantity of this item"
+                    aria-label="Button that displays a tooltip when focused or hovered over"
+                    class="btn btn-outline-primary">
+                    <mat-icon class="quantity-icon">add_circle</mat-icon>
+                </button>
+            </div>
+            <br>
             <div class="size-selection" align="center">
                 <mat-button-toggle-group [(ngModel)]="selectedSize" aria-label="Select size">
                     <mat-button-toggle value="S">4(S)</mat-button-toggle>
@@ -38,7 +52,8 @@
                     <mat-button-toggle value="XL">10/12(XL)</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
-            <div class="product-measurement" *ngIf="selectedSize">
+            <div align="center" *ngIf="selectedSize">
+                <br>
                 <h6>Item Measurement</h6>
                 <p *ngIf="selectedSize === 'S'">
                     <strong>Skirt - </strong> Length: {{item.skirt?.s_skirtLength}}, Waist Size:
@@ -69,19 +84,8 @@
                     <strong>Hip - </strong> Hip Size: {{item.hip?.xl_hipSize}} <br>
                 </p>
             </div>
-
+            <br>
             <div align="center">
-                <button mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"
-                    matTooltip="Decrease the Quantity of this item"
-                    aria-label="Button that displays a tooltip when focused or hovered over"
-                    class="btn btn-outline-primary">
-                    <mat-icon class="quantity-icon">remove_circle_outline</mat-icon>
-                </button>
-                <button mat-icon-button (click)="increaseQuantity()" matTooltip="Increase the Quantity of this item"
-                    aria-label="Button that displays a tooltip when focused or hovered over"
-                    class="btn btn-outline-primary">
-                    <mat-icon class="quantity-icon">add_circle</mat-icon>
-                </button><br><br>
                 <button matTooltip="Add this item to your Pet Cart" mat-raised-button
                     style="width:50%;border-radius: 6.53rem; font-size: 12px;"
                     [ngStyle]="{'background-color': 'purple', 'color': 'white'}"
