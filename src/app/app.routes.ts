@@ -7,8 +7,6 @@ import { DeliveryPolicyComponent } from './policies/delivery-policy/delivery-pol
 import { OrderPolicyComponent } from './policies/order-policy/order-policy.component';
 import { PrivacyPolicyComponent } from './policies/privacy-policy/privacy-policy.component';
 import { RefundPolicyComponent } from './policies/refund-policy/refund-policy.component';
-import { ContactComponent } from './contact/contact.component';
-import { SupportComponent } from './support/support.component';
 
 
 export const routes: Routes = [
@@ -48,15 +46,7 @@ export const routes: Routes = [
             {
                 path: 'order-policy',
                 component: OrderPolicyComponent
-            },
-            {
-                path: 'contact',
-                component: ContactComponent
-            },
-            {
-                path: 'support',
-                component: SupportComponent
-            },
+            }
         ]
     },
 ]
