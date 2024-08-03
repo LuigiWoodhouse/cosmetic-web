@@ -8,6 +8,7 @@ import { OrderPolicyComponent } from './policies/order-policy/order-policy.compo
 import { PrivacyPolicyComponent } from './policies/privacy-policy/privacy-policy.component';
 import { RefundPolicyComponent } from './policies/refund-policy/refund-policy.component';
 import { BehindTheScenesComponent } from './behind-the-scenes/behind-the-scenes.component';
+import { PaymentPolicyComponent } from './policies/payment-policy/payment-policy.component';
 
 
 export const routes: Routes = [
@@ -51,6 +52,10 @@ export const routes: Routes = [
             {
                 path: 'behind-the-scenes',
                 component: BehindTheScenesComponent
+            },
+            {
+                path: 'payment-policy',
+                component: PaymentPolicyComponent
             }
         ]
     },

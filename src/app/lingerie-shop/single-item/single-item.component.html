@@ -29,15 +29,18 @@
                 <li *ngFor="let desc of descriptionList">{{ desc }}</li>
             </ul>
             <p><strong>Price:</strong> ${{ item.price * item.quantity }} JMD</p>
-            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p *ngIf="item.stock > 0"><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p style="color:red" *ngIf="item.stock <= 5"><strong>Low Stock:</strong> {{ item.stock }}</p>
+            <p style="color:green" *ngIf="item.stock > 5"><strong>In Stock</strong></p>
+            <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
             <div align="center">
-                <button mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"
+                <button *ngIf="item.stock > 0" mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"
                     matTooltip="Decrease the Quantity of this item"
                     aria-label="Button that displays a tooltip when focused or hovered over"
                     class="btn btn-outline-primary">
                     <mat-icon class="quantity-icon">remove_circle_outline</mat-icon>
                 </button>
-                <button mat-icon-button (click)="increaseQuantity()" matTooltip="Increase the Quantity of this item"
+                <button *ngIf="item.stock > 0" mat-icon-button (click)="increaseQuantity()" matTooltip="Increase the Quantity of this item"
                     aria-label="Button that displays a tooltip when focused or hovered over"
                     class="btn btn-outline-primary">
                     <mat-icon class="quantity-icon">add_circle</mat-icon>
@@ -86,7 +89,7 @@
             </div>
             <br>
             <div align="center">
-                <button matTooltip="Add this item to your Pet Cart" mat-raised-button
+                <button  *ngIf="item.stock > 0" matTooltip="Add this item to your Pet Cart" mat-raised-button
                     style="width:50%;border-radius: 6.53rem; font-size: 12px;"
                     [ngStyle]="{'background-color': 'purple', 'color': 'white'}"
                     (click)="addItemToCart(item, selectedSize)"><mat-icon>add_shopping_cart</mat-icon>Add To

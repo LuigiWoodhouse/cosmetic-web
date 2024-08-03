@@ -44,6 +44,7 @@ export class SingleItemComponent {
   selectedSize!: string
   currentImageIndex: number = 0
   totalImages!: number
+  errorMessage: string | null = null
 
   public nextImage(): void {
     if (this.currentImageIndex < this.totalImages - 1) {
@@ -86,7 +87,13 @@ export class SingleItemComponent {
   }
 
   public increaseQuantity(): void {
-    this.item.quantity++
+    if (this.item.stock > 5 || this.item.quantity < this.item.stock) {
+      this.item.quantity++
+      this.errorMessage = null
+    } 
+    else {
+      this.errorMessage = 'can not increase quantity anymore as availabe stock is exceeded.';
+    }
   }
 
   public decreaseQuantity(): void {
