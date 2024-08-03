@@ -39,7 +39,6 @@ export class GuestPlaceOrderComponent {
     private notificationService: NotificationService,
     public inputSanitization: InputSanitizationService,
     public utilService: UtilService,
-    private zone: NgZone,
     private orderService:OrderService) { }
 
   @ViewChild('errorContent') errorContent!: TemplateRef<any>
@@ -98,8 +97,9 @@ export class GuestPlaceOrderComponent {
   }
 
   public openCollecOrderDetailsDialog(): void {
-    this.zone.run(() => this.dialog.open(CollectOrderDetailsComponent), {
-    })
+    const dialogRef = this.dialog.open(CollectOrderDetailsComponent, {
+      disableClose: true // Disable closing by clicking outside the dialog
+    });
   }
 
   ngOnInit(): void {

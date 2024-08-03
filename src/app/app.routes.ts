@@ -7,6 +7,7 @@ import { DeliveryPolicyComponent } from './policies/delivery-policy/delivery-pol
 import { OrderPolicyComponent } from './policies/order-policy/order-policy.component';
 import { PrivacyPolicyComponent } from './policies/privacy-policy/privacy-policy.component';
 import { RefundPolicyComponent } from './policies/refund-policy/refund-policy.component';
+import { BehindTheScenesComponent } from './behind-the-scenes/behind-the-scenes.component';
 
 
 export const routes: Routes = [
@@ -46,6 +47,10 @@ export const routes: Routes = [
             {
                 path: 'order-policy',
                 component: OrderPolicyComponent
+            },
+            {
+                path: 'behind-the-scenes',
+                component: BehindTheScenesComponent
             }
         ]
     },

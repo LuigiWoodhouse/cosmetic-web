@@ -7,7 +7,7 @@
 .hamburger-icon-size {
   font-size: 118%;
   position: fixed;
-  top: 33px;
+  top: 13px;
   right: 23px;
   color: rgb(206, 81, 102);
 }
@@ -19,7 +19,7 @@
 mat-toolbar {
   background-color: pink;
   position: fixed;
-  height: 100px;
+  height: 50px;
   top: 0;
   z-index: 1030;
   padding-top: 20px;
@@ -49,7 +49,7 @@ mat-sidenav {
 }
 
 nav {
-  margin: 10px;
+  margin: -14px;
 }
 
 ul {
