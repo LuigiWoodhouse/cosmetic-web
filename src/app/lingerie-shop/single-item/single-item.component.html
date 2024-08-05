@@ -31,8 +31,7 @@
             <p><strong>Price:</strong> ${{ item.price * item.quantity }} JMD</p>
             <p *ngIf="item.stock > 0"><strong>Quantity:</strong> {{ item.quantity }}</p>
             <p style="color:red" *ngIf="isLowStock()"><strong>Low Stock:</strong> {{ getStockBasedOnSize() }}</p>
-
-            <p style="color:green" *ngIf="item.skirtSmall.stock > 5 || item.skirtMediumstock > 5  || item.skirtLarge.stock > 5"><strong>In Stock</strong></p>
+            <p style="color:green" *ngIf="isStockAvailable()"><strong>In Stock</strong></p>
             <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
             <div align="center">
                 <button mat-icon-button (click)="decreaseQuantity()" [disabled]="item.quantity === 1"

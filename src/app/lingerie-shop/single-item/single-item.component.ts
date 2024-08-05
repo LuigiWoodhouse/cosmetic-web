@@ -144,6 +144,17 @@ export class SingleItemComponent {
     }
   }
   
+  public isStockAvailable(): boolean {
+    if (this.size === 'S') {
+      return this.item.skirtSmall.stock > 5;
+    } else if (this.size === 'M') {
+      return this.item.skirtMedium.stock > 5;
+    } else if (this.size === 'L') {
+      return this.item.skirtLarge.stock > 5;
+    }
+    return false;
+  }
+  
 
   public getStockBasedOnSize(): number {
     if (this.size === 'S') {
