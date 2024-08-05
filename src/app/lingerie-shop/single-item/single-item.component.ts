@@ -98,13 +98,66 @@ export class SingleItemComponent {
   }
 
   public increaseQuantity(): void {
-    if (this.item.stock > 5 || this.item.quantity < this.item.stock) {
-      this.item.quantity++
-      this.errorMessage = null
-    } 
-    else {
-      this.errorMessage = 'can not increase quantity anymore as availabe stock is exceeded.';
+    if (!this.size) {
+      this.snackBar.open('Please select a size first', 'Close', {
+        duration: 3000,
+      });
+      return;
     }
+  
+    switch (this.size) {
+      case 'S':
+        if (this.item.quantity < this.item.skirtSmall.stock) {
+          this.item.quantity++;
+          this.errorMessage = null;
+        } else {
+          this.snackBar.open('Cannot increase quantity as stock for size Small is exceeded', 'Close', {
+            duration: 3000,
+          });
+        }
+        break;
+      case 'M':
+        if (this.item.quantity < this.item.skirtMedium.stock) {
+          this.item.quantity++;
+          this.errorMessage = null;
+        } else {
+          this.snackBar.open('Cannot increase quantity as stock for size Medium is exceeded', 'Close', {
+            duration: 3000,
+          });
+        }
+        break;
+      case 'L':
+        if (this.item.quantity < this.item.skirtLarge.stock) {
+          this.item.quantity++;
+          this.errorMessage = null;
+        } else {
+          this.snackBar.open('Cannot increase quantity as stock for size Large is exceeded', 'Close', {
+            duration: 3000,
+          });
+        }
+        break;
+      default:
+        this.snackBar.open('Invalid size selected', 'Close', {
+          duration: 3000,
+        });
+        break;
+    }
+  }
+  
+
+  public getStockBasedOnSize(): number {
+    if (this.size === 'S') {
+      return this.item.skirtSmall.stock;
+    } else if (this.size === 'M') {
+      return this.item.skirtMedium.stock;
+    } else if (this.size === 'L') {
+      return this.item.skirtLarge.stock;
+    }
+    return 0;
+  }
+  
+  public isLowStock() {
+    return this.size && this.getStockBasedOnSize() <= 5;
   }
 
   public decreaseQuantity(): void {

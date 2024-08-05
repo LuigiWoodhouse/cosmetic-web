@@ -127,3 +127,19 @@ li {
     display: block;
   }
 }
+
+.rounded-circle {
+  position: absolute;
+  bottom: 8px;
+  left: 50px;
+  height: 35px;
+  width: 35px;
+  filter:
+    drop-shadow(2px 4px 4px #0006);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.rounded-circle:hover {
+  transform: scale(1.4, 1.4);
+}
