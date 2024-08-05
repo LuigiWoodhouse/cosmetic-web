@@ -11,7 +11,7 @@
         </div>
 
 
-        <button (click)="goToCart()" mat-fab class="cart-icon" style="font-size: 30px;">
+        <button (click)="utilService.scrollToTop()" (click)="goToCart()" mat-fab class="cart-icon" style="font-size: 30px;">
             <div style="font-size: 10px;" class="badge bg-danger">{{cartItemCount}}</div>
             <mat-icon style="color:white">
                 add_shopping_cart
@@ -48,51 +48,43 @@
             </div>
             <br>
             <div class="size-selection" align="center">
-                <mat-button-toggle-group [(ngModel)]="selectedSize" aria-label="Select size">
+                <mat-button-toggle-group [(ngModel)]="size" aria-label="Select size">
                     <mat-button-toggle value="S">4(S)</mat-button-toggle>
                     <mat-button-toggle value="M">6(M)</mat-button-toggle>
                     <mat-button-toggle value="L">8/10(L)</mat-button-toggle>
-                    <mat-button-toggle value="XL">10/12(XL)</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
-            <div align="center" *ngIf="selectedSize">
+            <div align="center" *ngIf="size">
                 <br>
                 <h6>Item Measurement</h6>
-                <p *ngIf="selectedSize === 'S'">
-                    <strong>Skirt - </strong> Length: {{item.skirt?.s_skirtLength}}, Waist Size:
-                    {{item.skirt?.s_waistSize}} <br>
-                    <strong>Top - </strong> Underbust: {{item.top?.s_underbust}}, Bust: {{item.top?.s_bust}}, Length:
-                    {{item.top?.s_topLength}} <br>
-                    <strong>Hip - </strong> Hip Size: {{item.hip?.s_hipSize}} <br>
+                <p *ngIf="size === 'S'">
+                    <strong>Skirt - </strong> Length: {{item.skirtSmall?.length}}, Waist Size:
+                    {{item.skirtSmall?.waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.topSmall?.underbust}}, Bust: {{item.topSmall?.bust}}, Length:
+                    {{item.topSmall?.length}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hipSmall?.hipSize}} <br>
                 </p>
-                <p *ngIf="selectedSize === 'M'">
-                    <strong>Skirt - </strong> Length: {{item.skirt?.m_skirtLength}}, Waist Size:
-                    {{item.skirt?.m_waistSize}} <br>
-                    <strong>Top - </strong> Underbust: {{item.top?.m_underbust}}, Bust: {{item.top?.m_bust}}, Length:
-                    {{item.top?.m_topLength}} <br>
-                    <strong>Hip - </strong> Hip Size: {{item.hip?.m_hipSize}} <br>
+                <p *ngIf="size === 'M'">
+                    <strong>Skirt - </strong> Length: {{item.skirtMedium?.length}}, Waist Size:
+                    {{item.skirtMedium?.waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.topMedium?.underbust}}, Bust: {{item.topMedium?.bust}}, Length:
+                    {{item.topMedium?.length}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hipMedium?.hipSize}} <br>
                 </p>
-                <p *ngIf="selectedSize === 'L'">
-                    <strong>Skirt - </strong> Length: {{item.skirt?.l_skirtLength}}, Waist Size:
-                    {{item.skirt?.l_waistSize}} <br>
-                    <strong>Top - </strong> Underbust: {{item.top?.l_underbust}}, Bust: {{item.top?.l_bust}}, Length:
-                    {{item.top?.l_topLength}} <br>
-                    <strong>Hip - </strong> Hip Size: {{item.hip?.l_hipSize}} <br>
-                </p>
-                <p *ngIf="selectedSize === 'XL'">
-                    <strong>Skirt - </strong> Length: {{item.skirt?.xl_skirtLength}}, Waist Size:
-                    {{item.skirt?.xl_waistSize}} <br>
-                    <strong>Top - </strong> Underbust: {{item.top?.xl_underbust}}, Bust: {{item.top?.xl_bust}}, Length:
-                    {{item.top?.xl_topLength}} <br>
-                    <strong>Hip - </strong> Hip Size: {{item.hip?.xl_hipSize}} <br>
+                <p *ngIf="size === 'L'">
+                    <strong>Skirt - </strong> Length: {{item.skirtLarge?.length}}, Waist Size:
+                    {{item.skirtLarge?.waistSize}} <br>
+                    <strong>Top - </strong> Underbust: {{item.topLarge?.underbust}}, Bust: {{item.topLarge?.bust}}, Length:
+                    {{item.topLarge?.length}} <br>
+                    <strong>Hip - </strong> Hip Size: {{item.hipLarge?.hipSize}} <br>
                 </p>
             </div>
             <br>
             <div align="center">
-                <button  *ngIf="item.stock > 0" matTooltip="Add this item to your Pet Cart" mat-raised-button
+                <button *ngIf="item.skirtSmall.stock > 0 || item.skirtMedium.stock > 0 || item.skirtLarge.stock > 0" matTooltip="Add this item to your Pet Cart" mat-raised-button
                     style="width:50%;border-radius: 6.53rem; font-size: 12px;"
                     [ngStyle]="{'background-color': 'purple', 'color': 'white'}"
-                    (click)="addItemToCart(item, selectedSize)"><mat-icon>add_shopping_cart</mat-icon>Add To
+                    (click)="onAddToCart(item)"><mat-icon>add_shopping_cart</mat-icon>Add To
                     Cart</button><br><br>
 
                 <button (click)="this.pageRoute.goBackToShop()" (click)="utilService.scrollToTop()" mat-raised-button

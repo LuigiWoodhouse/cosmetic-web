@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -30,7 +30,8 @@ export class SingleItemComponent {
     public pageRoute: PageRouteService,
     public utilService: UtilService,
     private itemService: ItemService,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
+    private snackBar: MatSnackBar
   ) { }
 
   itemId!: any
@@ -41,7 +42,7 @@ export class SingleItemComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start'
   verticalPosition: MatSnackBarVerticalPosition = 'bottom'
   descriptionList!: string[]
-  selectedSize!: string
+  size!: string
   currentImageIndex: number = 0
   totalImages!: number
   errorMessage: string | null = null
@@ -79,9 +80,19 @@ export class SingleItemComponent {
     this.lingerShopService.cartItemList
     this.pageRoute.goToGuestPlaceOrderPage()
   }
-  public addItemToCart(row: any,selectedSize: string ): void {
-    const productWithSelectedSize = { ...row, selectedSize };
-    this.lingerShopService.addItem(productWithSelectedSize)
+  public onAddToCart(row: any): void {
+    if (!this.size) {
+      this.snackBar.open('Please select a size before adding to cart', 'Close', {
+        duration: 3000,
+      });
+      return;
+    }
+    this.addItemToCart(row, this.size);
+  }
+
+  public addItemToCart(row: any,size: string ): void {
+    const productWithsize = { ...row, size }
+    this.lingerShopService.addItem(productWithsize)
     this.updateCartIconItemCount()
     this.notificationService.itemAddedToCart()
   }

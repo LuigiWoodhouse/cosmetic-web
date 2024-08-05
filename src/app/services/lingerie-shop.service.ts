@@ -31,8 +31,8 @@ export class LingerieShopService {
       ...productWithoutImages 
     } = product
   
-    const existingItem = this.cartItemList.find((item: { itemId: any; selectedSize: any; }) => 
-      item.itemId === product.itemId && item.selectedSize === product.selectedSize
+    const existingItem = this.cartItemList.find((item: { itemId: any; size: any; }) => 
+      item.itemId === product.itemId && item.size === product.size
     )
 
     if (!existingItem) {
