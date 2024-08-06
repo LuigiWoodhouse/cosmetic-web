@@ -60,9 +60,10 @@
                     <mat-button-toggle value="L">8/10(L)</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
-            <div align="center" *ngIf="size">
+            <div  *ngIf="size">
                 <br>
-                <h6>Item Measurement</h6>
+                <h6>Item Measurement(inches)</h6>
+                <div class ="measure">
                 <p *ngIf="size === 'S'">
                     <strong>Skirt - </strong> Length: {{item.skirtSmall?.length}}, Waist Size:
                     {{item.skirtSmall?.waistSize}} <br>
@@ -85,11 +86,12 @@
                     <strong>Hip - </strong> Hip Size: {{item.hipLarge?.hipSize}} <br>
                 </p>
             </div>
+            </div>
             <br>
             <div align="center">
                 <button *ngIf="item.skirtSmall.stock > 0 || item.skirtMedium.stock > 0 || item.skirtLarge.stock > 0" matTooltip="Add this item to your Pet Cart" mat-raised-button
                     style="width:50%;border-radius: 6.53rem; font-size: 12px;"
-                    [ngStyle]="{'background-color': 'purple', 'color': 'white'}"
+                    [ngStyle]="{'background-color': 'pink', 'color': 'white'}"
                     (click)="onAddToCart(item)"><mat-icon>add_shopping_cart</mat-icon>Add To
                     Cart</button><br><br>
 

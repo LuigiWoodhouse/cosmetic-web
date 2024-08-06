@@ -16,15 +16,15 @@ export class ItemService {
 
 
   getALLItems(): Observable<Item[]>  {
-    return this.http.get<Item[]>(`${this.BASE_URL}/lingerie/retrieve/all`)
+    return this.http.get<Item[]>(`${this.BASE_URL}/shop/retrieve/all`)
   }
 
   getTotalImages(itemId: string): Observable<number> {
-    const url = `${this.BASE_URL}/lingerie/display/total/${itemId}`
+    const url = `${this.BASE_URL}/shop/display/total/${itemId}`
     return this.http.get<number>(url)
   }
 
   fetchItemById(itemId: number): Observable<Item> {
-    return this.http.get<Item>(`${this.BASE_URL}/lingerie/item-details/${itemId}`)
+    return this.http.get<Item>(`${this.BASE_URL}/shop/item-details/${itemId}`)
   }
 }

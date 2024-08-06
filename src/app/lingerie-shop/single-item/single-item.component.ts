@@ -37,7 +37,7 @@ export class SingleItemComponent {
   itemId!: any
   item: any
   BASE_URL = environment.apiUrl
-  imageUrl = this.BASE_URL + '/lingerie/display/'
+  imageUrl = this.BASE_URL + '/shop/display/'
   cartItemCount: any
   horizontalPosition: MatSnackBarHorizontalPosition = 'start'
   verticalPosition: MatSnackBarVerticalPosition = 'bottom'

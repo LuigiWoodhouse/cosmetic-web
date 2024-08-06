@@ -73,12 +73,12 @@
 }
 
 .btn-outline-primary {
-    color: purple;
+    color: pink;
 }
 
 .btn-outline-primary:hover {
     color: white;
-    background-color: purple;
+    background-color: rgb(221, 120, 137);
 }
 
 .quantity-icon {
@@ -100,4 +100,8 @@
 .copy {
     cursor: pointer;
     font-size: 20px;
+}
+
+.measure{
+    font-size: 12px;
 }

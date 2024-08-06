@@ -49,7 +49,7 @@ export class ItemComponent {
   quantity: any = 1
   loadingShopAnimation = true
   BASE_URL = environment.apiUrl
-  imageUrl = this.BASE_URL + '/lingerie/display/'
+  imageUrl = this.BASE_URL + '/shop/display/'
   horizontalPosition: MatSnackBarHorizontalPosition = 'start'
   verticalPosition: MatSnackBarVerticalPosition = 'bottom'
   loadingImage = true

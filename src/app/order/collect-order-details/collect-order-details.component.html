@@ -54,9 +54,10 @@
 
 <div mat-dialog-actions align="center">
     <button class ="same-width-button" mat-raised-button *ngIf="!loadingAnimation; else spinner"
-        [ngStyle]="{'background-color': customerDetailsFormGroup.valid ? 'purple' : 'lightgray', 'color': 'white'}"
+        [ngStyle]="{'background-color': customerDetailsFormGroup.valid ? 'pink' : 'lightgray', 'color': 'white'}"
         (click)="createGuestCustomerOrder()" [disabled]="!customerDetailsFormGroup.valid" mat-dialog-close>Proceed To
         Place Order</button>
+        
     <button class ="same-width-button" mat-raised-button mat-dialog-close>No</button>
 </div>
 

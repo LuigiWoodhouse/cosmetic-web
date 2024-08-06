@@ -44,7 +44,7 @@ export class GuestPlaceOrderComponent {
   @ViewChild('errorContent') errorContent!: TemplateRef<any>
   placeOrderFormGroup!: FormGroup
   BASE_URL = environment.apiUrl
-  imageUrl = this.BASE_URL + '/lingerie/display/'
+  imageUrl = this.BASE_URL + '/shop/display/'
   public cartItemList: any = []
   grandTotal!: number
   orderPlaced: boolean = false
