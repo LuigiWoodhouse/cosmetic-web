@@ -1,27 +1,45 @@
-# Lingerie
+# Roleplay Delight
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+## Introduction
 
-## Development server
+This is an angular app that does the client side business logic for Roleplay Delight
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Current Version of this app
+1.0.1
 
-## Code scaffolding
+## Language version
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular CLI: 18.0.7
+Node: 18.20.4
+Package Manager: npm 10.7.0
+OS: win32 x64
 
-## Build
+Angular: 18.0.6
+... animations, common, compiler, compiler-cli, core, forms
+... material, platform-browser, platform-browser-dynamic
+... platform-server, router
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1800.7
+@angular-devkit/build-angular   18.0.7
+@angular-devkit/core            18.0.7
+@angular-devkit/schematics      18.0.7
+@angular/cdk                    18.1.3
+@angular/cli                    18.0.7
+@angular/ssr                    18.0.7
+@schematics/angular             18.0.7
+rxjs                            7.8.1
+typescript                      5.4.5
+zone.js                         0.14.7
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## How To Run Locally
+1. Install Node.js v18.17.0 if you havent already using the following link https://nodejs.org/en/download
+2. Run the following command to install angular cli: npm install -g @angular/cli
+3. Install dependencies: npm install
+4. Start the application by running : ng serve
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 1.0.1
+- Remove space between navbar and shop bar category
