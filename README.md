@@ -43,3 +43,6 @@ zone.js                         0.14.7
 
 ## 1.0.1
 - Remove space between navbar and shop bar category
+
+## 1.0.2
+- Update background color of CTA buttons from pink to rgb(159, 64, 80);
