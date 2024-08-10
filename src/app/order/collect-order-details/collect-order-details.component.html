@@ -33,7 +33,7 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input matInput formControlName="phoneNumber" [(ngModel)]="createOrder.phoneNumber"
+                    <input maxlength="12" matInput formControlName="phoneNumber" [(ngModel)]="createOrder.phoneNumber"
                         (input)="this.inputSanitization.allowOnlyNumbersAndHyphen($event)" required>
                     <mat-error *ngIf="customerDetailsControl.hasError('required')"> Phone number is required
                     </mat-error>

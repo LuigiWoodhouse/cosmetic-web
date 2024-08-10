@@ -5,7 +5,7 @@
 This is an angular app that does the client side business logic for Roleplay Delight
 
 ## Current Version of this app
-1.0.1
+1.0.3
 
 ## Language version
 
@@ -46,3 +46,6 @@ zone.js                         0.14.7
 
 ## 1.0.2
 - Update background color of CTA buttons from pink to rgb(159, 64, 80);
+
+## 1.0.3
+- Phone number bug fixed where user would still see error message after only 10 digits
