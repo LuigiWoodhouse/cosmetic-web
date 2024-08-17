@@ -53,12 +53,11 @@
 </mat-dialog-content>
 
 <div mat-dialog-actions align="center">
-    <button class ="same-width-button" mat-raised-button *ngIf="!loadingAnimation; else spinner"
-        [ngStyle]="{'background-color': customerDetailsFormGroup.valid ? 'pink' : 'lightgray', 'color': 'white'}"
-        (click)="createGuestCustomerOrder()" [disabled]="!customerDetailsFormGroup.valid" mat-dialog-close>Proceed To
-        Place Order</button>
+    <button  mat-raised-button *ngIf="!loadingAnimation; else spinner"
+        [ngStyle]="{'background-color': customerDetailsFormGroup.valid ? 'rgb(159, 64, 80)' : 'lightgray', 'color': 'white'}"
+        (click)="createGuestCustomerOrder()" [disabled]="!customerDetailsFormGroup.valid" mat-dialog-close>Place Order</button>
         
-    <button class ="same-width-button" mat-raised-button mat-dialog-close>No</button>
+    <button mat-raised-button mat-dialog-close>Go Back</button>
 </div>
 
 <div class="center">

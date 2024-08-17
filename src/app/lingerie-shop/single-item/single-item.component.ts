@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { FooterComponent } from '../../footer/footer.component';
 import { ItemService } from '../../services/item.service';
 import { LingerieShopService } from '../../services/lingerie-shop.service';

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InputSanitizationService } from '../../services/input-sanitization.service';
 import { UtilService } from '../../services/util.service';
 import { LingerieShopService } from '../../services/lingerie-shop.service';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { PageRouteService } from '../../services/page-route.service';
 import { NotificationService } from '../../services/notification.service';
 import { MatIconModule } from '@angular/material/icon';
