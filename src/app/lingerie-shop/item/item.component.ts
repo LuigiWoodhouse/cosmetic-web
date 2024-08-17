@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ItemService } from '../../services/item.service';
 import { UtilService } from '../../services/util.service';
-import { environment } from '../../../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-item',
