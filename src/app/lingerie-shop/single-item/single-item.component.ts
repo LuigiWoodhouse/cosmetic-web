@@ -46,6 +46,7 @@ export class SingleItemComponent {
   currentImageIndex: number = 0
   totalImages!: number
   errorMessage: string | null = null
+  public isSizeSelected: boolean = false
 
   public nextImage(): void {
     if (this.currentImageIndex < this.totalImages - 1) {
@@ -90,6 +91,11 @@ export class SingleItemComponent {
     this.addItemToCart(row, this.size);
   }
 
+  public onSizeSelection(size: string): void {
+    this.size = size;
+    this.isSizeSelected = true;  // Set flag to true once a size is selected
+  }
+  
   public addItemToCart(row: any,size: string ): void {
     const productWithsize = { ...row, size }
     this.lingerShopService.addItem(productWithsize)
