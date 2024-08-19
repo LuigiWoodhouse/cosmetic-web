@@ -54,7 +54,7 @@
             </div>
             <br>
             <div class="size-selection" align="center">
-                <mat-button-toggle-group [(ngModel)]="size" aria-label="Select size">
+                <mat-button-toggle-group (change)="onSizeSelection($event.value)" [(ngModel)]="size" aria-label="Select size">
                     <mat-button-toggle value="S">4(S)</mat-button-toggle>
                     <mat-button-toggle value="M">6(M)</mat-button-toggle>
                     <mat-button-toggle value="L">8/10(L)</mat-button-toggle>
@@ -89,7 +89,7 @@
             </div>
             <br>
             <div align="center">
-                <button *ngIf="item.skirtSmall.stock > 0 || item.skirtMedium.stock > 0 || item.skirtLarge.stock > 0" matTooltip="Add this item to your Pet Cart" mat-raised-button
+                <button *ngIf="!isSizeSelected || getStockBasedOnSize() > 0"  matTooltip="Add this item to your Pet Cart" mat-raised-button
                     style="width:50%;border-radius: 6.53rem; font-size: 12px; background-color: rgb(159, 64, 80);color:white"
                     (click)="onAddToCart(item)"><mat-icon>add_shopping_cart</mat-icon>Add To
                     Cart</button><br><br>

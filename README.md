@@ -53,3 +53,6 @@ zone.js                         0.14.7
 ## 1.0.4
 - Update background color of CTA buttons from pink to rgb(159, 64, 80) on place order modal
 - Add env configs.
+
+## 1.0.5
+- Fixed issue with add to cart button not being hidden when stock is zero
