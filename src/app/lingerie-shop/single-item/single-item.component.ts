@@ -83,7 +83,7 @@ export class SingleItemComponent {
   }
   public onAddToCart(row: any): void {
     if (!this.size) {
-      this.snackBar.open('Please select a size before adding to cart', 'Close', {
+      this.snackBar.open('Please select a size before adding to cart', 'X', {
         duration: 3000,
       });
       return;
@@ -105,7 +105,7 @@ export class SingleItemComponent {
 
   public increaseQuantity(): void {
     if (!this.size) {
-      this.snackBar.open('Please select a size first', 'Close', {
+      this.snackBar.open('Please select a size first', 'X', {
         duration: 3000,
       });
       return;
@@ -117,7 +117,7 @@ export class SingleItemComponent {
           this.item.quantity++;
           this.errorMessage = null;
         } else {
-          this.snackBar.open('Cannot increase quantity as stock for size Small is exceeded', 'Close', {
+          this.snackBar.open('Cannot increase quantity as stock for size Small is exceeded', 'X', {
             duration: 3000,
           });
         }
@@ -127,7 +127,7 @@ export class SingleItemComponent {
           this.item.quantity++;
           this.errorMessage = null;
         } else {
-          this.snackBar.open('Cannot increase quantity as stock for size Medium is exceeded', 'Close', {
+          this.snackBar.open('Cannot increase quantity as stock for size Medium is exceeded', 'X', {
             duration: 3000,
           });
         }
@@ -137,13 +137,13 @@ export class SingleItemComponent {
           this.item.quantity++;
           this.errorMessage = null;
         } else {
-          this.snackBar.open('Cannot increase quantity as stock for size Large is exceeded', 'Close', {
+          this.snackBar.open('Cannot increase quantity as stock for size Large is exceeded', 'X', {
             duration: 3000,
           });
         }
         break;
       default:
-        this.snackBar.open('Invalid size selected', 'Close', {
+        this.snackBar.open('Invalid size selected', 'X', {
           duration: 3000,
         });
         break;
