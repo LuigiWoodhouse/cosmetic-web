@@ -26,7 +26,7 @@
                     <mat-icon>delete</mat-icon>
                 </button>
                 <br>
-                <img [src]="imageUrl + item.itemId" height="100px" width="150px">
+                <img [src]="imageUrl + item.itemId" height="150px" width="150px">
                 <hr>
                 <button [routerLink]="['/item-details', item.itemId]" (click)="utilService.scrollToTop()"
                     mat-raised-button style="background-color: grey; color:white; font-size: 12px;">

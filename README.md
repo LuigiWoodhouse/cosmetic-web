@@ -56,3 +56,8 @@ zone.js                         0.14.7
 
 ## 1.0.5
 - Fixed issue with add to cart button not being hidden when stock is zero
+
+## 1.1.0
+- Add service worker
+- update angular cli and core from 18.0.0 to 18.2.1
+- update shop UI

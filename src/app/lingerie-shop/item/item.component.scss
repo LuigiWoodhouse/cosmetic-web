@@ -104,7 +104,7 @@ mat-toolbar {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 36px;
     /* Adjust the gap between cards */
 }
 
@@ -112,4 +112,12 @@ mat-toolbar {
     flex: 1 1 25%;
     /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 25% */
     box-sizing: border-box;
+}
+
+.item-name {
+    font-size: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
 }

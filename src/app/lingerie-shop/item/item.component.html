@@ -29,16 +29,14 @@
       <ng-container *ngIf="filterProductList.length > 0; else noItems">
         <div class="card-item" *ngFor="let item of filterProductList">
           <mat-card>
-            <mat-card-header>
-              <div class="item-name">
+            <mat-card-header class="item-name">
+             
                 <b>{{item.name}}</b><br>
-              </div>
+            
             </mat-card-header>
             <a [routerLink]="['/item-details', item.itemId]" >
               <img [src]="getImageUrl(item.itemId)" loading="lazy" class="item-image-prevent-stretch" *ngIf="!loadingImage; else noImage">
             </a>
-            <mat-card-actions>
-            </mat-card-actions>
           </mat-card>
         </div>
       </ng-container>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Lingerie": {
+    "RoleplayDelight": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/lingerie",
+            "outputPath": "dist/RoleplayDelight",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -63,7 +63,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,
@@ -77,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Lingerie:build:production"
+              "buildTarget": "RoleplayDelight:build:production"
             },
             "development": {
-              "buildTarget": "Lingerie:build:development"
+              "buildTarget": "RoleplayDelight:build:development"
             }
           },
           "defaultConfiguration": "development"

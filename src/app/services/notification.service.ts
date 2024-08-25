@@ -44,7 +44,7 @@ export class NotificationService {
   }
 
   public copy(): void {
-    this._snackBar.open('Copied successfully', 'close', {
+    this._snackBar.open('Copied successfully', 'X', {
       duration: this.durationMs,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
@@ -52,7 +52,7 @@ export class NotificationService {
   }
 
   public imageListError(): void {
-    this._snackBar.open('Failed to display images', 'close', {
+    this._snackBar.open('Failed to display images', 'X', {
       duration: this.durationMs,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
