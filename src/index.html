@@ -11,6 +11,25 @@
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#1976d2">
 </head>
+<script>
+  window.addEventListener('appinstalled', function() {
+
+    const data = {
+      app: "Roleplay Delight"
+    };
+    
+    BASE_URL = environment.apiUrl
+
+    fetch(BASE_URL + '/installation/analytics', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+  });
+</script>
 <body>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
