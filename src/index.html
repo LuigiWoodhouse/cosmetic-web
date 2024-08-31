@@ -17,10 +17,8 @@
     const data = {
       app: "Roleplay Delight"
     };
-    
-    BASE_URL = environment.apiUrl
 
-    fetch(BASE_URL + '/installation/analytics', {
+    fetch('https://petanitopia-backend.fly.dev/installation/analytics', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
