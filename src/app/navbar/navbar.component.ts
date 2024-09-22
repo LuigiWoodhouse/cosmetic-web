@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { UtilService } from '../services/util.service';
 import { CommonModule } from '@angular/common';
+import { WhatsappButtonComponent } from '../buttons/whatsapp-button/whatsapp-button.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     MatSidenavModule,
     MatMenuModule,
     RouterModule,
-    CommonModule],
+    CommonModule,
+    WhatsappButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
