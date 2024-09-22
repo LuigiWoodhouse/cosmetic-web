@@ -1,0 +1,53 @@
+.highlight {
+    color: #dfd1e9;
+    font-weight: 550;
+    text-decoration: none;
+    position: fixed;
+    bottom: 91%;
+    left: 40%;
+}
+
+/* Responsive columns for Mobile devices (320px - 480px) */
+@media screen and (min-width:320px) and (max-width: 480px) {
+    .higlight {
+        position: fixed;
+        bottom: 91%;
+        left: 40%;
+    }
+}
+
+/* Responsive columns for iPads, Tablets (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .highlight {
+        position: fixed;
+        bottom: 91%;
+        left: 25%;
+    }
+}
+
+/* Responsive columns for Small screens, laptops (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .highlight {
+        position: fixed;
+        bottom: 91%;
+        left: 15%;
+    }
+}
+
+/* Responsive columns for Desktops, large screens (1025px - 1200px) */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .highlight {
+        position: fixed;
+        bottom: 93%;
+        left: 13%;
+    }
+}
+
+/* Responsive columns for Extra large screens, TV (1201px and more) */
+@media screen and (min-width: 1201px) {
+    .highlight {
+        position: fixed;
+        bottom: 92.5%;
+        left: 10%;
+    }
+}

@@ -5,7 +5,7 @@
 This is an angular app that does the client side business logic for Roleplay Delight
 
 ## Current Version of this app
-1.2.0
+1.2.1
 
 ## Language version
 
@@ -64,3 +64,6 @@ zone.js                         0.14.7
 
 ## 1.2.0
 - Add API to track PWA download count
+
+## 1.2.1
+- Add whatsapp CTA button
