@@ -5,7 +5,7 @@
 This is an angular app that does the client side business logic for Roleplay Delight
 
 ## Current Version of this app
-1.2.1
+1.2.2
 
 ## Language version
 
@@ -67,3 +67,7 @@ zone.js                         0.14.7
 
 ## 1.2.1
 - Add whatsapp CTA button
+
+## 1.2.2
+- Add Plus size category
+- Update whatsApp icon button on navbar

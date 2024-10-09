@@ -142,6 +142,26 @@ export class SingleItemComponent {
           });
         }
         break;
+        case '1XL':
+          if (this.item.quantity < this.item.skirt1XL.stock) {
+            this.item.quantity++;
+            this.errorMessage = null;
+          } else {
+            this.snackBar.open('Cannot increase quantity as stock for size Large is exceeded', 'X', {
+              duration: 3000,
+            });
+          }
+          break;
+          case '2XL':
+            if (this.item.quantity < this.item.skirt2XL.stock) {
+              this.item.quantity++;
+              this.errorMessage = null;
+            } else {
+              this.snackBar.open('Cannot increase quantity as stock for size Large is exceeded', 'X', {
+                duration: 3000,
+              });
+            }
+            break;
       default:
         this.snackBar.open('Invalid size selected', 'X', {
           duration: 3000,
@@ -158,6 +178,12 @@ export class SingleItemComponent {
     } else if (this.size === 'L') {
       return this.item.skirtLarge.stock > 5;
     }
+    else if (this.size === '1XL') {
+      return this.item.skirt1XL.stock > 5;
+    }
+    else if (this.size === '2XL') {
+      return this.item.skirt1XL.stock > 5;
+    }
     return false;
   }
   
@@ -169,6 +195,12 @@ export class SingleItemComponent {
       return this.item.skirtMedium.stock;
     } else if (this.size === 'L') {
       return this.item.skirtLarge.stock;
+    }
+    else if (this.size === '1XL') {
+      return this.item.skirt1XL.stock;
+    }
+    else if (this.size === '2XL') {
+      return this.item.skirt1XL.stock;
     }
     return 0;
   }
