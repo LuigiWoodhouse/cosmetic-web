@@ -5,7 +5,7 @@
 This is an angular app that does the client side business logic for Roleplay Delight
 
 ## Current Version of this app
-1.2.2
+1.2.3
 
 ## Language version
 
@@ -71,3 +71,7 @@ zone.js                         0.14.7
 ## 1.2.2
 - Add Plus size category
 - Update whatsApp icon button on navbar
+
+## 1.2.3
+- Add social media button tiktok
+- Improve lighthouse score

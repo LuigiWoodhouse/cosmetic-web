@@ -37,7 +37,7 @@
             
             </mat-card-header>
             <a [routerLink]="['/item-details', item.itemId]" >
-              <img [src]="getImageUrl(item.itemId)" loading="lazy" class="item-image-prevent-stretch" *ngIf="!loadingImage; else noImage">
+              <img [src]="getImageUrl(item.itemId)" alt="lingerie" loading="lazy" class="item-image-prevent-stretch" *ngIf="!loadingImage; else noImage">
             </a>
           </mat-card>
         </div>
