@@ -75,3 +75,7 @@ zone.js                         0.14.7
 ## 1.2.3
 - Add social media button tiktok
 - Improve lighthouse score
+
+## 1.2.4
+- Remove lingerie tabs
+- add dress tab
